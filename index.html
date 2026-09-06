@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>🧠 Project Brain</title>
+<script src="https://telegram.org/js/telegram-web-app.js"></script>
+<style>
+  :root { color-scheme: dark; }
+  * { box-sizing: border-box; }
+  body { margin: 0; font: 16px/1.55 -apple-system, "Segoe UI", Roboto, sans-serif;
+         background: #0f1115; color: #e8e6e3; padding-bottom: 70px; }
+  header { position: sticky; top: 0; z-index: 5; background: #0f1115ee;
+            backdrop-filter: blur(8px); border-bottom: 1px solid #232838; }
+  header h1 { margin: 0; padding: 12px 16px 6px; font-size: 17px; color: #f5a623; }
+  nav { display: flex; overflow-x: auto; gap: 6px; padding: 0 10px 10px; }
+  .tab { flex: 0 0 auto; background: #171a21; color: #cfcac2; border: 1px solid #2a3040;
+          border-radius: 999px; padding: 7px 14px; font-size: 14px; cursor: pointer; }
+  .tab.on { background: #f5a623; color: #14161b; border-color: #f5a623; font-weight: 600; }
+  .sec { display: none; padding: 14px 16px; animation: fade .15s ease-in; }
+  .sec.active { display: block; }
+  @keyframes fade { from { opacity: 0 } to { opacity: 1 } }
+  h2 { color: #f5a623; font-size: 15px; text-transform: uppercase; letter-spacing: .4px;
+        margin: 22px 0 8px; border-bottom: 1px solid #232838; padding-bottom: 4px; }
+  h3 { color: #ffd479; font-size: 16px; margin: 18px 0 6px; }
+  table { border-collapse: collapse; width: 100%; font-size: 14px; margin: 8px 0; }
+  th, td { border: 1px solid #2a3040; padding: 6px 8px; text-align: left; vertical-align: top; }
+  th { background: #171a21; }
+  tr:nth-child(even) td { background: #14171d; }
+  a { color: #7ab8ff; text-decoration: none; }
+  code { background: #1b1f27; padding: 1px 5px; border-radius: 4px; font-size: 13px; }
+  li { margin: 4px 0; }
+  hr { border: 0; border-top: 1px solid #232838; margin: 18px 0; }
+  footer { position: fixed; bottom: 0; left: 0; right: 0; background: #0f1115ee;
+            border-top: 1px solid #232838; color: #6d7382; font-size: 12px;
+            text-align: center; padding: 8px; }
+</style>
+</head>
+<body>
+<header><h1>🧠 Project Brain</h1><nav><button class="tab" id="tab-0" onclick="show('today')">⭐ Today</button><button class="tab" id="tab-1" onclick="show('board')">🗺 Board</button><button class="tab" id="tab-2" onclick="show('dash')">📋 Dashboard</button><button class="tab" id="tab-3" onclick="show('map')">🧠 Map</button></nav></header>
+<section id="sec-today" class="sec active"><p><i>First daily digest arrives at 09:00.</i></p></section><section id="sec-board" class="sec"><h2>⭐ TODAY</h2>
+<ul>
+<li>☐ Filmmaking: one film or several? #waiting-on-you</li>
+<li>☐ ntfy topic name → phone digests on #waiting-on-you</li>
+<li>☐ Say "go" → wujuh 90-day roadmap drafted</li>
+<li>☐ Say "go" → DuoDigs publish checklist</li>
+</ul>
+<h2>001 · wujuh.store</h2>
+<ul>
+<li>☐ ⚡ "go" → ZCode drafts 90-day roadmap from plan §10</li>
+<li>☐ Decide §6.1 exclusive-sale atomicity (audit flag)</li>
+<li>☐ Gate 0: blind authenticity test + cull library to top 20–35%</li>
+<li>☐ Checkout: paid-demo → real payments (Paddle)</li>
+<li>☐ <code>git init</code> D:\Vibe Coding\wujuh</li>
+</ul>
+<h2>002 · DuoDigs</h2>
+<ul>
+<li>☐ ⚡ "go" → publish checklist from pre-launch docs</li>
+<li>☐ Decide: publish now vs finish EXPLORE-PAGE plan</li>
+<li>☐ Landing page: add waitlist capture (Brevo already wired)</li>
+</ul>
+<h2>003 · LAGOON</h2>
+<ul>
+<li>☐ ⚡ "go" → ZCode runs <code>git init</code> in the lagoon folder</li>
+<li>☐ Roadmap draft from HANDOVER.md + PLAN.md</li>
+<li>☐ One-sentence definition of done</li>
+</ul>
+<h2>004 · Filmmaking</h2>
+<ul>
+<li>☐ ⚡ Answer: one film or several?</li>
+<li>☐ Reorganize workspace artifacts into per-film folders</li>
+<li>☐ Per-film production checklist (script → boards → VO → edit)</li>
+</ul>
+<h2>005 · OpenTypeless</h2>
+<ul>
+<li>☐ ⚡ "go" → review uncommitted STT/LLM diff + summary</li>
+<li>☐ Commit or split the WIP</li>
+<li>☐ Pick next provider/feature milestone</li>
+</ul>
+<h2>006 · Project Brain</h2>
+<ul>
+<li>☐ ⚡ Say "go" → Mini App: brain as a phone UI inside Telegram (GitHub Pages mirror)</li>
+<li>☐ Optional: request Serverless beta (instant dump acks)</li>
+<li>☐ Retune digest time if 09:00 is wrong</li>
+</ul>
+<h2>📥 INBOX (untriaged)</h2>
+<ul>
+<li>☐ 7 untracked D:\ folders — yes/no each (Social Digs, portfolio×3, App to App, bolt-slides, lagoon copy)</li>
+</ul></section><section id="sec-dash" class="sec"><h1>🧠 Project Brain — Dashboard</h1>
+<p><em>Last refreshed: 2026-09-06 (projects 001/002 mapped from D: drive) · Daily review rewrites this at 09:00</em></p>
+<h2>⭐ TODAY — top 3</h2>
+<p><em>Answer these and the whole board is unblocked:</em></p>
+<ol>
+<li><strong>[Filmmaking]</strong> One line: one film or several? Correct the artifact map in <code>004-filmmaking/project.md</code>.</li>
+<li><strong>[wujuh]</strong> Say <strong>"go"</strong> → ZCode reads the business plan §10 + audit and drafts your real 90-day roadmap.</li>
+<li><strong>[DuoDigs]</strong> Say <strong>"go"</strong> → ZCode reads the pre-launch docs and writes the publish checklist (repo is one <code>deploy:web</code> from live).</li>
+</ol>
+<h2>Projects</h2>
+<table>
+<thead>
+<tr>
+<th>#</th>
+<th>Project</th>
+<th>Status</th>
+<th>Next action</th>
+<th>Last touched</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>001</td>
+<td><a href="001-wujuh-store/project.md">wujuh.store</a></td>
+<td>🟢 active</td>
+<td>"go" → roadmap from plan §10; §6.1 decision; git init</td>
+<td>2026-08-25 (audit)</td>
+</tr>
+<tr>
+<td>002</td>
+<td><a href="002-duodigs-app/project.md">DuoDigs</a></td>
+<td>🟢 active</td>
+<td>"go" → publish checklist; then publish-vs-features call</td>
+<td>2026-07-11 (session log)</td>
+</tr>
+<tr>
+<td>003</td>
+<td><a href="003-lagoon-voice-studio/project.md">LAGOON voice studio</a></td>
+<td>🟢 active</td>
+<td>Say "go" → ZCode runs <code>git init</code> there</td>
+<td>2026-07-02</td>
+</tr>
+<tr>
+<td>004</td>
+<td><a href="004-filmmaking/project.md">Filmmaking</a></td>
+<td>🟡 needs input</td>
+<td>One film or several? (last open answer)</td>
+<td>2026-08-21</td>
+</tr>
+<tr>
+<td>005</td>
+<td><a href="005-opentypeless/project.md">OpenTypeless</a></td>
+<td>🟢 active</td>
+<td>Say "go" → ZCode reviews uncommitted STT/LLM diff</td>
+<td>2026-08-31</td>
+</tr>
+<tr>
+<td>006</td>
+<td><a href="006-project-brain/project.md">Project Brain</a></td>
+<td>✅ built · 🟢 watching</td>
+<td>Say the word if 09:00 digest time should move</td>
+<td>2026-09-06</td>
+</tr>
+</tbody>
+</table>
+<h2>Waiting on you (nothing else blocks the robots)</h2>
+<ul>
+<li>Filmmaking: one film or several? · 4× "go" (wujuh roadmap, DuoDigs checklist, Lagoon git, OpenTypeless diff)</li>
+<li>INBOX holds 7 untracked D:\ folders — a yes/no each, whenever.</li>
+</ul>
+<h2>Legend</h2>
+<p>🟢 active · 🟡 paused/needs input · 🧊 frozen (has resume note) · ✅ done
+<strong>Weekly review rebalances so max 2 projects run "hot" each week — momentum over juggling.</strong></p></section><section id="sec-map" class="sec"><h1>🧠 Project Brain</h1>
+<h2>🟢 001 wujuh.store</h2>
+<ul>
+<li>⚡ "go" → 90-day roadmap from plan §10</li>
+<li>decide §6.1 exclusivity atomicity</li>
+<li>Gate 0: authenticity test + cull</li>
+<li>checkout: paid-demo → Paddle</li>
+<li>git init the wujuh folder</li>
+</ul>
+<h2>🟢 002 DuoDigs</h2>
+<ul>
+<li>⚡ "go" → publish checklist</li>
+<li>publish now vs EXPLORE-PAGE first</li>
+<li>landing waitlist (Brevo wired)</li>
+</ul>
+<h2>🟢 003 LAGOON</h2>
+<ul>
+<li>⚡ "go" → git init</li>
+<li>roadmap from HANDOVER + PLAN</li>
+<li>one-sentence done-definition</li>
+</ul>
+<h2>🟡 004 Filmmaking</h2>
+<ul>
+<li>⚡ one film or several?</li>
+</ul>
+<h2>🟢 005 OpenTypeless</h2>
+<ul>
+<li>⚡ "go" → review uncommitted diff</li>
+<li>commit or split WIP</li>
+<li>next milestone</li>
+</ul>
+<h2>🟢 006 Project Brain</h2>
+<ul>
+<li>✅ ntfy + vault + ✈️ telegram live</li>
+<li>⚡ "go" → Mini App phone UI</li>
+<li>digest time: 09:00 ok?</li>
+</ul></section>
+<footer>auto-published by the 09:00 review · 2026-09-06 10:13</footer>
+<script>
+function show(id) {
+  document.querySelectorAll('.sec').forEach(s => s.classList.remove('active'));
+  document.getElementById('sec-' + id).classList.add('active');
+  document.querySelectorAll('.tab').forEach(t => t.classList.remove('on'));
+  document.getElementById('tab-' + id).classList.add('on');
+  window.scrollTo({top: 0});
+}
+document.getElementById('tab-today').classList.add('on');
+if (window.Telegram && Telegram.WebApp) Telegram.WebApp.expand();
+</script>
+</body>
+</html>
